@@ -1,0 +1,37 @@
+.footer{
+    margin-top: 80px;
+}
+.Qr{
+    /* height: 100%;
+    width: 100%; */
+}
+.footer-text{
+        font-size: 70px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #e0e0e0;
+}
+.footer-text-Qr-desc {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #fff;
+}
+.footer-text-Qr{
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: #fff;
+}
+.download{
+    width: 125px;
+}
+
+.footer-text-Qr-desc{font-size: 28px;
+font-weight: 600;
+line-height: 1.29;
+letter-spacing: normal;
+color: #fff;}

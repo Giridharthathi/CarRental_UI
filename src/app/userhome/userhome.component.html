@@ -1,0 +1,134 @@
+<div class=" container  user-navbar bg-nger">
+    <div class="row justify-content-between mt-2">
+        <div class="row justify-content-between ">
+        <img src="../../assets/icons/user.png" alt="userProfile"
+        (click)="setUpdateValue()"
+         class="user-icon mt-1" data-target="#myAccount"
+         data-toggle="modal">   
+         <h3 class="text-black">{{user.firstName}}</h3>
+        </div>
+        <button class="btn btn-primary" (click)="yourOrders()">Your Order</button>
+    </div>
+</div>
+<!-- ----------------------Search-------------------- -->
+<!-- <h1> This is search section </h1> -->
+<div class="container mt-5 cab-explore ">
+    <div class="row rounded justify-content-around w-100">
+        <form class="form-container mt-5" [formGroup]='dateData'>
+            <div class="form-row pl-3">
+
+                <div class="form-group pl-3">
+                    <label for="from">From</label>
+                    <input type="text" class="form-control" name="from" size="25" placeholder="Eg: Bangalore"
+                    formControlName = "city">
+                </div>
+                <!-- <div [formGroupName]="dates" class="row"> -->
+                <div class="form-group pl-3">
+                    <label for="from">From Date</label>
+                    <input type="date" class="form-control" name="fromDate" size="25" placeholder="Eg: DD/MM/YYY"
+                    formControlName = "fromDate">
+                    <div *ngIf="formErrors.fromDate" class="text-danger">
+                        {{formErrors.fromDate}}
+                    </div>
+                </div>
+
+                <div class="form-group pl-3">
+                    <label for="from">To Date</label>
+                    <input type="date" class="form-control" name="toDate" size="25" placeholder="Eg: DD/MM/YYY"
+                    formControlName = "toDate">
+                    <div *ngIf="formErrors.toDate" class="text-danger">
+                        {{formErrors.toDate}}
+                    </div>
+                </div>
+            <!-- </div> -->
+
+            </div>
+            <button class="btn btn-secondary text-center ml-5" (click)="selectDate()">Rent Car</button>
+        </form>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="journey-header ">Our journey so far</h2>
+</div>
+
+<div class="container mt-3 journey">
+    <div class="row justify-content-between happy-revvers">
+        <div class="col-6 col-md-3 ">
+            <img src="../assets/icons/revvers.png" alt="revvers" class="achievements-img">
+            <h5 class="achievements-title">1 Mn +</h5>
+            <p class="text-secondary">Happy Revvers</p>
+        </div>
+        <div class="col-6 col-md-3">
+            <img src="../assets/icons/cities.png" alt="cities" class="achievements-img">
+            <h5 class="achievements-title">22+ cities</h5>
+            <p class="text-secondary">Across India</p>
+        </div>
+        <div class="col-6 col-md-3">
+            <img src="../assets/icons/travel.png" alt="travel" class="achievements-img">
+            <h5 class="achievements-title">50 Mn +</h5>
+            <p class="text-secondary">Kms Travelled</p>
+        </div>
+        <div class="col-6 col-md-3">
+            <img src="../assets/icons/review.png" alt="review" class="achievements-img">
+            <h5 class="achievements-title">4.8/5</h5>
+            <p class="text-secondary">20K+ reviewers</p>
+        </div>
+    </div>
+</div>
+<!-- -------------------card--------------------- -->
+<div class="container-fluid cars-details"> 
+    <div class="row">        
+        <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let carData of allCarDetails | async">
+ 
+            <div class="card m-5" (click)='showCarDetail(carData.carId)'>
+                <div class="card-header">{{carData.carName}}</div>
+                <div class="card-body">
+                    {{carData.model}}<br>
+                    {{carData.seats}}<br>
+                    {{carData.transmission}}<br>
+                    {{carData.fuelType}}
+                </div>
+                <div class="card-footer">
+                    <!-- <button class="btn btn-success">Proceed</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MyAccount -->
+<div class="modal" id="myAccount">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">My Account</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="myAccountForm">
+                    <div class="form-group pl-3">
+                        <label for="from">E-Mail</label>
+                        <input type="text" class="form-control" name="mail" size="25"
+                        formControlName = "mail">
+                        <div *ngIf="formErrors.fromDate" class="text-danger">
+                            {{formErrors.mail}}
+                        </div>
+                    </div>
+    
+                    <div class="form-group pl-3">
+                        <label for="from">Phone Number</label>
+                        <input type="text" class="form-control" name="phoneNumber" size="25"
+                        formControlName = "phoneNumber">
+                        <div *ngIf="formErrors.toDate" class="text-danger">
+                            {{formErrors.phoneNumber}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal"
+                (click)="update()" >Update</button>
+            </div>
+        </div>
+    </div>
+</div>

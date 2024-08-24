@@ -1,0 +1,23 @@
+
+<div class="container-fluid cars-details">
+ 
+    <div class="row"  >
+        
+        <div class="col-lg-4 col-md-4 col-sm-6"  *ngFor="let carData of carByCity">
+ 
+            <div class="card m-5">
+                <div class="card-header">{{carData.carName}}</div>
+                <div class="card-body">
+                    {{carData.model}}<br>
+                    {{carData.seats}}<br>
+                    {{carData.transmission}}<br>
+                    {{carData.fuelType}}
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success" (click)='selectedCar(carData.carId)'>Proceed</button>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</div>

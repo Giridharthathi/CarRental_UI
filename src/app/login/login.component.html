@@ -1,0 +1,110 @@
+<div class="container-fluid login">
+    <div class="row">
+        <div class="col-md-6 second-section bg-white rounded">
+            <img src="../assets/images/testinimials/login.svg" alt="loginImage" class="car-image">
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+
+            <form [formGroup]='loginData' class="first-section form-container login-form h-70">
+                <h1 class="text-center"> Login </h1>
+                <div>
+                    <small class="text-danger text-center" *ngIf="errorMessage">
+                        Invalid Credential please enter correct credentials</small>
+                </div>
+                <div class="input-group pt-4">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="text" class="form-control" formControlName='mail' [class.is-invalid]="formErrors.mail"
+                        placeholder="User mail">
+                    <div *ngIf="formErrors.mail" class="text-danger">
+                        {{formErrors.mail}}
+                    </div>
+                </div>
+
+                <div class="input-group pt-4">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control" formControlName='password'
+                        [class.is-invalid]="formErrors.password" placeholder="Password">
+                    <div *ngIf="formErrors.password" class="text-danger">
+                        {{formErrors.password}}
+                    </div>
+                </div>
+                <!-- <div class="input-group pt-4">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control" formControlName='password'
+                        [class.is-invalid]="formErrors.password" placeholder="Password">
+                    <div *ngIf="formErrors.password" class="text-danger">
+                        {{formErrors.password}}
+                    </div>
+                </div> -->
+                <button class="btn btn-success btn-block mt-4" [disabled]="loginData.invalid"
+                    (click)="onSubmit()">Submit</button>
+                    <div class="text-center">
+                    <button class="btn text-primary" data-target="#changePassword" data-toggle="modal" hrf>Forgot Password</button>
+                </div>
+                <div class="row justify-content-center">
+                    <p>don't have account register here <br></p>
+                    <a class="text-primary" (click)="registerHere()">register here?</a>
+                </div>
+                <div>
+                    <div class="social-login">
+                        <label>Or login with</label>
+                        <div class="social-container">
+                            <button>
+                                <span class="fab fa-twitter"  alt="twitter button"></span>
+                            </button>
+                            <button>
+                                <span class="fab fa-google"  alt="google button"></span>
+                            </button>
+                            <button>
+                                <span class="fab fa-linkedin-in"  alt="linkedIn button"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- -------------------Change Password------------- -->
+<div class="modal" id="changePassword">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group pt-4">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="text" class="form-control" formControlName='mail' [class.is-invalid]="formErrors.mail"
+                        placeholder="User mail">
+                    <div *ngIf="formErrors.mail" class="text-danger">
+                        {{formErrors.mail}}
+                    </div>
+                </div>
+
+                <div class="input-group pt-4">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control" formControlName='password'
+                        [class.is-invalid]="formErrors.password" placeholder="Password">
+                    <div *ngIf="formErrors.password" class="text-danger">
+                        {{formErrors.password}}
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block mt-4" [disabled]="loginData.invalid"
+                    (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

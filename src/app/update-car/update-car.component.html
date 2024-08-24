@@ -1,0 +1,113 @@
+<div class="container register">
+    <div class="row">
+        <!-- CarId, CarName, Model, EngineNo, Seats, EngineType, FuelCapacity, -->
+        <div style="width:300px;">
+            <form [formGroup]='carData'>
+
+                <div class="form-group update-form">
+                    <label>Car Name: </label>
+                    <input type="text" class="form-control" formControlName='carName'
+                        [class.is-invalid]="formErrors.carName">
+                    <div *ngIf="formErrors.carName" class="text-danger">
+                        {{formErrors.carName}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Model: </label>
+                    <input type="text" class="form-control" formControlName='model'
+                        [class.is-invalid]="formErrors.model">
+                    <div *ngIf="formErrors.model" class="text-danger">
+                        {{formErrors.model}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Seats: </label>
+                    <input type="text" class="form-control" formControlName='seats'
+                        [class.is-invalid]="formErrors.seats">
+                    <div *ngIf="formErrors.seats" class="text-danger">
+                        {{formErrors.seats}}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Fuel Capacity: </label>
+                    <input type="text" class="form-control" formControlName='fuelCapacity' [class.is-invalid]="formErrors.fuelCapacity">
+                    <div *ngIf="formErrors.fuelCapacity" class="text-danger">
+                        {{formErrors.fuelCapacity}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>AirBags: </label>
+                    <input type="text" class="form-control" formControlName='airBags' [class.is-invalid]="formErrors.airBags">
+                    <div *ngIf="formErrors.airBags" class="text-danger">
+                        {{formErrors.airBags}}
+                    </div>
+                </div>
+                <!-- KmsDriven,
+                ,
+                RegistrationNumber, -->
+
+                <div class="form-group">
+                    <label>Fuel Type: </label>
+                    <input type="text" class="form-control" formControlName='fuelType'
+                        [class.is-invalid]="formErrors.fuelType">
+                    <div *ngIf="formErrors.fuelType" class="text-danger">
+                        {{formErrors.fuelType}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Car Type: </label>
+                    <input type="text" class="form-control" formControlName='carType'
+                        [class.is-invalid]="formErrors.carType">
+                    <div *ngIf="formErrors.carType" class="text-danger">
+                        {{formErrors.carType}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Registration Number: </label>
+                    <input type="text" class="form-control" formControlName='registrationNumber'
+                        [class.is-invalid]="formErrors.registrationNumber" disabled>
+                    <div *ngIf="formErrors.registrationNumber" class="text-danger">
+                        {{formErrors.registrationNumber}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Transmission: </label>
+                    <input type="text" class="form-control" formControlName='transmission'
+                        [class.is-invalid]="formErrors.transmission">
+                    <div *ngIf="formErrors.transmission" class="text-danger">
+                        {{formErrors.transmission}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Kms Driven: </label>
+                    <input type="text" class="form-control" formControlName='kmsDriven'
+                        [class.is-invalid]="formErrors.kmsDriven">
+                    <div *ngIf="formErrors.kmsDriven" class="text-danger">
+                        {{formErrors.kmsDriven}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>City: </label>
+                    <input type="text" class="form-control" formControlName='city'
+                        [class.is-invalid]="formErrors.city">
+                    <div *ngIf="formErrors.city" class="text-danger">
+                        {{formErrors.city}}
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" [disabled]="carData.invalid"
+                (click)="updateCar()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

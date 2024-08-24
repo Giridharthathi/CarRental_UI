@@ -1,0 +1,261 @@
+<div class="container crud-ops pt-5" *ngIf="!navBar">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center bg-dark rounded text-white">Get All Car Details</h5>
+
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <img src="../assets/icons/GetAllCarIcon.png" alt="" class="img-center">
+                </h6>
+                <!-- <a (click)="getAllDetails()" class="card-link">getAllDetails</a> -->
+                <button (click)="getAllDetails()" class="card-link btn btn-success btn-block">GetAllDetails</button>
+            </div>
+        </div>
+
+        <div class="card ml-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center bg-dark rounded text-white">Add New Car</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <img src="../assets/icons/AddCar.png" alt="AddCar" class="ml-5 image">
+                </h6>
+                <button (click)="insertForm()" class="card-link btn btn-success button-center btn-block">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" container-fluid row justify-content-between crud-ops" *ngIf="navBar">
+    <h4 class="text-primary" routerLinkActive="is-active">
+        <button (click)=getAllDetails() class="btn btn-success">Get all details</button>
+    </h4>
+    <div class="row">
+        <form [formGroup]="search " class="d-flex justify-content-between">
+            <input class="form-control w-100 " type="search" formControlName="searchCar" size=15
+                placeholder="Eg: Fuel Type,CarType,Seats" aria-label="Search" [class.is-invalid]="formErrors.searchCar">
+
+            <div *ngIf="formErrors.searchCar" class="text-danger">
+                {{formErrors.searchCar}}
+            </div>
+            <button (click)="searchCar()" class="btn btn-success ml-4" type="submit">Search</button>
+        </form>
+    </div>
+    <h4>
+        <button (click)="insertForm()" class="btn btn-success btn-block">Insert</button>
+    </h4>
+</div>
+
+<div class="col-sm-12 d-flex justify-content-center" *ngIf="isHidden">
+    <table class="table table-dark table-data table-responsive" [disabled]="getAllDetailsData">
+        <thead>
+            <tr>
+                <th scope="col">CarName</th>
+                <th scope="col">Model</th>
+                <th scope="col">Seats</th>
+                <th scope="col">FuelCapacity</th>
+                <th scope="col">AirBags</th>
+                <th scope="col">fuelType</th>
+                <th scope="col">CarType</th>
+                <th scope="col">Transmission</th>
+                <th scope="col">RegistrationNumber</th>
+                <th scope="col">KmsDriven</th>
+                <th scope="col">price</th>
+                <th scope="col">ownerMailId</th>
+                <th scope="col">City</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete </th>
+                <th scope="col">Show Users </th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let carData of allCarDetails | async">
+                <td>{{carData.carName}}</td>
+                <td>{{carData.model}}</td>
+                <td>{{carData.seats}}</td>
+                <td>{{carData.fuelCapacity}}</td>
+                <td>{{carData.airBags}}</td>
+                <td>{{carData.fuelType}}</td>
+                <td>{{carData.carType}}</td>
+                <td>{{carData.transmission}}</td>
+                <td>{{carData.registrationNumber}}</td>
+                <td>{{carData.kmsDriven}}</td>
+                <td>{{carData.price}}</td>
+                <td>{{carData.ownerMailId}}</td>
+                <td>{{carData.city}}</td>
+                <td><button class="btn bg-success" (click)="updateCar(carData.carId)">
+                        <i class="far fa-edit" aria-hidden="true"></i>
+                    </button></td>
+                <td><button class="btn bg-danger" (click)="deleteCar(carData.carId)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button></td>
+                    <td><button class="btn bg-primary" (click)="searchUser(carData.carId)">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div  class="text-center text-danger crud-ops" *ngIf="showMessage">
+    <h1>OOPS no record found...!</h1>
+</div>
+
+<!-- -------------------------------UserDeatils who used -->
+<div class="col-sm-12 d-flex justify-content-center" *ngIf="isUserTable">
+    <table class="table table-dark table-data" [disabled]="getAllDetailsData">
+        <thead>
+            <tr>
+                <th scope="col">FirstName</th>
+                <th scope="col">carName</th>
+                <th scope="col">Model</th>
+                <th scope="col">Payment</th>
+                <th scope="col">FromDate</th>
+                <th scope="col">Days</th>               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let userData of carUsedUserDetails | async">
+                <td>{{userData.firstname}}</td>
+                <td>{{userData.carName}}</td>
+                <td>{{userData.model}}</td>
+                <td>{{userData.payment}}</td>
+                <td>{{userData.fromDate}}</td>
+                <td>{{userData.days}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container register border" *ngIf="carInsertForm">
+    <div>
+    <!-- </div> class="d-flex justify-content-center"> -->
+        <h1 class="text-center ">Add New Car</h1>
+        <div class="row mt-5 justify-content-center">
+
+            <div style="width:300px;">
+                <form [formGroup]='carRegisterForm'>
+
+                    <div class="form-group update-form">
+                        <label>Car Name: </label>
+                        <input type="text" class="form-control" formControlName='carName'
+                            [class.is-invalid]="formErrors.carName">
+                        <div *ngIf="formErrors.carName" class="text-danger">
+                            {{formErrors.carName}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Model: </label>
+                        <input type="text" class="form-control" formControlName='model'
+                            [class.is-invalid]="formErrors.model">
+                        <div *ngIf="formErrors.model" class="text-danger">
+                            {{formErrors.model}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Seats: </label>
+                        <input type="text" class="form-control" formControlName='seats'
+                            [class.is-invalid]="formErrors.seats">
+                        <div *ngIf="formErrors.seats" class="text-danger">
+                            {{formErrors.seats}}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Fuel Capacity: </label>
+                        <input type="text" class="form-control" formControlName='fuelCapacity'
+                            [class.is-invalid]="formErrors.fuelCapacity">
+                        <div *ngIf="formErrors.fuelCapacity" class="text-danger">
+                            {{formErrors.fuelCapacity}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>AirBags: </label>
+                        <input type="text" class="form-control" formControlName='airBags'
+                            [class.is-invalid]="formErrors.airBags">
+                        <div *ngIf="formErrors.airBags" class="text-danger">
+                            {{formErrors.airBags}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fuel Type: </label>
+                        <input type="text" class="form-control" formControlName='fuelType'
+                            [class.is-invalid]="formErrors.fuelType">
+                        <div *ngIf="formErrors.fuelType" class="text-danger">
+                            {{formErrors.fuelType}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Car Type: </label>
+                        <input type="text" class="form-control" formControlName='carType'
+                            [class.is-invalid]="formErrors.carType">
+                        <div *ngIf="formErrors.carType" class="text-danger">
+                            {{formErrors.carType}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Registration Number: </label>
+                        <input type="text" class="form-control" formControlName='registrationNumber'
+                            [class.is-invalid]="formErrors.registrationNumber">
+                        <div *ngIf="formErrors.registrationNumber" class="text-danger">
+                            {{formErrors.registrationNumber}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transmission: </label>
+                        <input type="text" class="form-control" formControlName='transmission'
+                            [class.is-invalid]="formErrors.transmission">
+                        <div *ngIf="formErrors.transmission" class="text-danger">
+                            {{formErrors.transmission}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kms Driven: </label>
+                        <input type="text" class="form-control" formControlName='kmsDriven'
+                            [class.is-invalid]="formErrors.kmsDriven">
+                        <div *ngIf="formErrors.kmsDriven" class="text-danger">
+                            {{formErrors.kmsDriven}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City: </label>
+                        <input type="text" class="form-control" formControlName='city'
+                            [class.is-invalid]="formErrors.city">
+                        <div *ngIf="formErrors.city" class="text-danger">
+                            {{formErrors.city}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price: </label>
+                        <input type="text" class="form-control" formControlName='price'
+                            [class.is-invalid]="formErrors.price">
+                        <div *ngIf="formErrors.price" class="text-danger">
+                            {{formErrors.price}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mail-Id: </label>
+                        <input type="text" class="form-control" formControlName='ownerMailId'
+                            [class.is-invalid]="formErrors.ownerMailId">
+                        <div *ngIf="formErrors.ownerMailId" class="text-danger">
+                            {{formErrors.ownerMailId}}
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" (click)="insertCar()" [disabled]="carRegisterForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

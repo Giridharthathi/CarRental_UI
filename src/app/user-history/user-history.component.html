@@ -1,0 +1,32 @@
+<div class="container-fluid user-history-details" *ngIf="!found">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let history of userHistory">
+            <!-- carName, model, Payment, FromDate, Days, seats, city -->
+            <div class="card m-5">
+                <div class="card-header">{{ history.carName }}</div>
+                <div class="card-body">
+                    {{ history.model }}<br>
+                    {{ history.payment }}<br>
+                    {{ history.fromDate }}<br>
+                    {{ history.days }}<br>
+                    {{ history.seats }}<br>
+                    {{ history.city }}
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-dark" (click)='selectedCar(history.carId)'>Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row justify-content-center"> -->
+<h1 class="text-center ui-button-text-icons">Thank you for using us...!
+    <img src="../../assets/icons/11005470.png" alt="">
+</h1>
+
+<!-- </div>  -->
+
+<div class="container row justify-content-center ml-5  user-history-details ml-5" *ngIf="found">
+    <!-- <h1 class="text-center text-danger">OOPS! No History Found</h1> -->
+    <img src="../../assets/notfound/data-not-found.avif" alt="">
+</div>

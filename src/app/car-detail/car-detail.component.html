@@ -1,0 +1,176 @@
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 pt-5 mt-5">
+            <div class="car-details">
+                <h1 class="pl-3">{{car.carName}}</h1>
+                <!-- <img class="img-fluid" src="maruti_swift.jpg" alt="Maruti Swift"> -->
+                <div class="row">
+                    <p class="pl-4"><img src="../assets/icons/seat.png" class="icons ml-3 mr-3">{{car.seats}} | </p>
+                    <p> <img src="../assets/icons/transmission.png" class="icons ml-3 mr-3">{{car.transmission}} | </p>
+                    <p> <img src="../assets/icons/petrol.png" class="icons ml-3 mr-3">{{car.fuelType}}</p>
+                </div>
+            </div>
+            <div class="booking-details pl-4">
+                <h2>Booking Details</h2>
+                <p>Thu., 11 Jan 14:30 - Fri., 12 Jan 15:00</p>
+                <div>
+                    <p class="location">
+                        <img src="../assets/icons/location.png" alt="Location" class="icons ml-2 mb-1"> {{car.city}}
+                    </p>
+                </div>
+                <div class="row">
+                    <p>Pricing Plan: Includes 250 kms, includes fuel! Change plan</p>
+                    <p>includes fuel! Change plan</p>
+                </div>
+            </div>
+            <div class="important-points">
+                <table class="table table-striped">
+                    <!-- <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead> -->
+                    <tbody>
+                        <tr>
+
+                            <td>IMPORTANT POINTS TO REMEMBER
+                                CHANGE IN PRICING PLAN:</td>
+                            <td>The pricing plan (10 kms/hr, with fuel) cannot be changed after the booking is made
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>FUEL</td>
+                            <td> Included. If you need to refuel during your trip, we will reimburse the fuel bills
+                                (while returning the car, please let our executive take a pic of them. Hand-written
+                                bills are NOT valid)</td>
+                        </tr>
+                        <tr>
+                            <td>TOLLS, PARKING, INTER-STATE TAXES:</td>
+                            <td>To be paid by you.</td>
+                        </tr>
+                        <tr>
+                            <td>ID VERIFICATION:</td>
+                            <td> Please keep your original Driving License handy. While delivering the car to you,
+                                our executive will verify your original Driving License and ID proof (same as the
+                                ones whose details were provided while making the booking). This verification is
+                                mandatory. In the unfortunate case where you cannot show these documents, we will
+                                not be able to handover the car to you, and it will be treated as a late
+                                cancellation (100% of the fare would be payable). Driving license printed on A4
+                                sheet of paper (original or otherwise) will not be considered as a valid document.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PRE-HANDOVER INSPECTION:</td>
+                            <td>Please inspect the car (including the fuel gauge and odometer) thoroughly before
+                                approving the checklist.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4 price mt-5 pt-5">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Base fare</td>
+                        <td> <img src="../assets/icons/rupee.png" alt="rupee" class="icons ml-1">  {{car.price}}</td>
+                    </tr>
+                    <tr>
+                        <td>Doorstep delivery & pickup ₹500</td>
+                        <td>500/-</td>
+                    </tr>
+                    <tr>
+                        <td>Insurance & GST</td>
+                        <td class="text-danger">Included!</td>
+                    </tr>
+                    <tr>
+                        <td>Refundable security deposit </td>
+                        <td>2500/-</td>
+                    </tr>
+                    <!-- <tr>
+                        <td class="fontLg" style="height: 51px; padding-left: 10px; vertical-align: middle;">Total
+                        </td>
+                        <td>₹10007/-</td>
+                    </tr> -->
+
+                    <tr>
+                        <td>Kms limit </td>
+                        <td>250 kms</td>
+                    </tr>
+                    <tr>
+                        <td>Fuel</td>
+                        <td>Included</td>
+                    </tr>
+                    <tr>
+                        <td>Extra kms charge</td>
+                        <td>13/Km</td>
+                    </tr>
+                    <tr>
+                        <td>Tolls, Parking & Inter-state taxes</td>
+                        <td class="text-danger">To be paid by you</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-block" data-target="#proceed"
+            data-toggle="modal">Proceed</button>
+        </div>
+    </div>
+</main>
+<!-- ------------------------- MODAL--------------------- -->
+<div class="modal" id="proceed">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="carBookDateForm">
+                    <div class="form-group pl-3">
+                        <label for="from">From Date</label>
+                        <input type="date" class="form-control" name="fromDate" size="25" placeholder="Eg: DD/MM/YYY"
+                        formControlName = "fromDate">
+                        <div *ngIf="formErrors.fromDate" class="text-danger">
+                            {{formErrors.fromDate}}
+                        </div>
+                    </div>
+    
+                    <div class="form-group pl-3">
+                        <label for="from">To Date</label>
+                        <input type="date" class="form-control" name="toDate" size="25" placeholder="Eg: DD/MM/YYY"
+                        formControlName = "toDate">
+                        <div *ngIf="formErrors.toDate" class="text-danger">
+                            {{formErrors.toDate}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <p>Booking For:{{this.totalDays}}</p>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" [disabled]="carBookDateForm.invalid"
+                data-target="#payment" data-toggle="modal">Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----------------------------------PAYMENT ---------------- -->
+<div class="modal" id="payment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Payment</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <h1 class="text-center">Booking For:{{this.totalDays}} day</h1>
+            <h4 class="text-center">Total Amount to be Paid:{{this.totalDays * car.price}}</h4>
+            <small class="text-danger text-center">*Non-Refundable</small>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal"
+                (click)="rentCar()">Rent Car</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+.brand-logo{
+    height: 53px;
+    margin-left: 50px;
+}
+
+.navbar-fields{
+    margin-left: 930px;
+}
+
+
+
+.achievements{
+    margin-top: 80px;
+    
+}
+.achieved{
+    background-color: #000;
+    margin-top: 100px;
+    padding: 20px;
+    height: 100px;
+    font: 800 22px system-ui;
+}
+
+
+
+.how-to-book-img{
+    margin-left: 50px;
+    width: 80px;    
+    height: 80px;
+    box-shadow: 0 3px 11px 0 #acacac;
+    border-radius: 8px;
+    padding: 10px;
+}
+.host-share-earn-steps{
+    background-color: #f5f5f5;
+    padding: 50px 0 20px 0px;
+}
+.content-title {
+text-align: center;
+margin-top: 16px;
+margin-bottom: 12px;
+font-size: 18px;
+font-weight: 600;
+line-height: 1.33;
+letter-spacing: .16px;
+color: #1f1f1f;
+    /* font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #1f1f1f;
+    text-align: left; */
+}
+
+
+.host-car-sharing-benefits-blocks-block-description {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.43;
+    letter-spacing: 0.24px;
+    color: rgb(102, 102, 102);
+    text-align: start;
+}
+
+.host-car-sharing-benefits-blocks-block-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    /* letter-spacing: 0.16px; */
+    color: rgb(31, 31, 31);
+    text-align: start;
+}
+
+
+.host-car-sharing-benefits-title {
+    max-width: 220px;
+    font-size: 36px;
+    color: rgb(168, 168, 168);
+}
+
+.host-testimonials-title {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 1.2px;
+    color: rgb(102, 102, 102);
+    text-transform: uppercase;
+}

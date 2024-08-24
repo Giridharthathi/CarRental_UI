@@ -1,0 +1,67 @@
+.brand-logo{
+    height: 53px;
+    margin-left: 50px;
+}
+.nav-color{
+    background-color: #000;
+}
+
+.text-size{
+    font-size: 18px;
+    font-weight: bold;
+}
+.navbar-fields{
+    margin-left: 930px;
+}
+.footer{
+    margin-top: 70px;
+    background-color: #000;
+}
+
+.footer-text{
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #e0e0e0;
+}
+.qr-block{
+    padding-top: 10px;
+    grid-template-rows: 5fr 1fr;
+    height: 100%;
+}
+.qr-img>img{
+    height: 100%;
+    width: 100%;
+}
+.qr-text{
+    text-align: center;
+    display: block;
+}
+.qr-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.qr-desc-title{
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #fff;
+}
+.qr-desc-description{
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: #fff;
+}
+.playstore{
+    padding-left: 54px;
+    width: 243px;
+}
+.appstore{
+    background-position: 342px 93px;
+    width: 180px;
+}

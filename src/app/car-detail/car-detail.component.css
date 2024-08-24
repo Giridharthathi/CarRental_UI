@@ -1,0 +1,34 @@
+body {
+    padding: 20px;
+    
+}
+.icons{
+    width: 20px;
+}
+.location{
+    width: 125px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+}
+.car-details,
+.booking-details,
+.fare-details,
+.important-points {
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(3, 153, 53, 0.15);
+    border-radius: 25px;
+}
+
+.fare-details {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.price{
+    height: 200px;
+}
+
+.booking-details{
+    font-size: 18px;
+}

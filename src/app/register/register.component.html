@@ -1,0 +1,115 @@
+<div class="container-fluid register  ">
+    <div class="row justify-content-between">
+        <div class="col-6 mt-5">
+            <img src="../../assets/images/download.png" alt=""  class="w-75 mt-5 pl-5">
+        </div>
+
+        <div [hidden]="submitted" style="width:300px;" class="col-6">
+            <form [formGroup]='userData' class="p-3">
+                <h1 class="text-center text-dark">Registration Form</h1>
+                <!-- 
+                <div class="input-group col-md-6 p-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="name" placeholder="Employee Name" formControlName="name">
+                </div> -->
+              
+                    <div class="input-group pt-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        </div>
+                        <input type="text" class="form-control" formControlName='firstName'
+                            [class.is-invalid]="formErrors.firstName" placeholder=" First name Eg: Giridhar Reddy">
+                    </div>
+                    <div *ngIf="formErrors.firstName" class="text-danger">
+                        {{formErrors.firstName}}
+                    </div>
+
+                    <div class="input-group pt-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        </div>
+                        <input type="text" class="form-control" formControlName='lastName'
+                            [class.is-invalid]="formErrors.lastName" placeholder="Last name Eg:Thathireddy">
+                    </div>
+                    <div *ngIf="formErrors.lastName" class="text-danger">
+                        {{formErrors.lastName}}
+                    </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-genderless" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="text" class="form-control" formControlName='gender'
+                        [class.is-invalid]="formErrors.gender" placeholder="Eg:Male or Female"><br>
+                    
+                </div>
+                <div *ngIf="formErrors.gender" class="text-danger">
+                    {{formErrors.gender}}
+                </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="number" class="form-control" formControlName='age' [class.is-invalid]="formErrors.age"
+                        placeholder="Eg:Age above 18">
+                  
+                </div>
+                <div *ngIf="formErrors.age" class="text-danger">
+                    {{formErrors.age}}
+                </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="text" class="form-control" formControlName='mail' [class.is-invalid]="formErrors.mail"
+                        placeholder="Eg:giridhar@gmail.com">
+                    
+                </div>
+                <div *ngIf="formErrors.mail" class="text-danger">
+                    {{formErrors.mail}}
+                </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="tel" class="form-control" formControlName='phoneNumber'
+                        [class.is-invalid]="formErrors.phoneNumber" placeholder="Eg:7894561233">
+                    
+                </div>
+                <div *ngIf="formErrors.phoneNumber" class="text-danger">
+                    {{formErrors.phoneNumber}}
+                </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control" formControlName='password'
+                        [class.is-invalid]="formErrors.password" placeholder="Password">
+                   
+                </div>
+                <div *ngIf="formErrors.password" class="text-danger">
+                    {{formErrors.password}}
+                </div>
+
+                <div class="input-group pt-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    </div>
+                    <input type="password" class="form-control" formControlName='confirmPassword'
+                        [class.is-invalid]="formErrors.confirmPassword" placeholder="Confirm Password">
+                    
+                </div>
+                <div *ngIf="userData.errors?.misMatch" class="text-danger">
+                    Password is mismatched
+                </div>
+                <button class="btn btn-success mt-5 btn-block" (click)="onSubmit()" [disabled]="userData.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

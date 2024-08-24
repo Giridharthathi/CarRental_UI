@@ -1,0 +1,70 @@
+<nav class="navbar-expand-md navbar fixed-top sm-5 navbar-light nav-color">
+
+    <a href="#" class="navbar-brand">
+        <img src="../assets/images/zoom-logo.png" class="brand-logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="my-nav">
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link text-light text-size" routerLink="login" *ngIf="loginStatus">Signup/SignIn</a>
+            </li>
+            <!-- routerLink="login" -->
+
+            <!-- <li class="nav-item"> -->
+            <!-- <button (cli)><a class="nav-link" routerLink="register">Register</a></button> -->
+            <!-- <a class="nav-link" routerLink="register">Register</a>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link text-light text-size" *ngIf="!loginStatus" (click)="logout()">Logout</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-light text-size">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-light text-size">ContactUs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div class=" footer ">
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="mt-5">
+                <h3 class="footer-text">
+                    NEVER<br>
+                    STOP<br>
+                    LIVING
+                </h3>
+            </div>
+            <div class="row qr-block mt-5 mb-5">
+                <div>
+                    <img src="../assets/images/Footer/Qr.png" alt="QR">
+                    <p class="qr-text text-light">
+                        Scan this QR code to<br> download app.
+                    </p>
+                </div>
+                <div class="qr-desc pl-5">
+                    <div class="qr-desc-title">DOWNLOAD ZOOMCAR APP</div>
+                    <div class="qr-desc-description">
+                        We have incredible offers, discounts &<br> much more in our app.
+                    </div>
+                    <div>
+                        <img src="../assets/icons/app-store.png" alt="AppleStore" class="appstore">
+                        <img src="../assets/icons/google-play-store.png" alt="AppleStore" class="playstore">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

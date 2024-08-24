@@ -1,0 +1,101 @@
+.user-navbar{
+    margin-top: 85px;
+}
+.user-icon{
+    width: 33px;
+    height: 33px;
+}
+.brand-logo{
+    height: 53px;
+    margin-left: 50px;
+}
+
+.navbar-fields{
+    margin-left: 930px;
+}
+
+.details{
+    margin-top: 80px;
+}
+
+.car-search-title{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: .16px;
+    color: #1f1f1f;
+}
+
+.car-details{
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.33;
+    letter-spacing: .4px;
+    color: #a8a8a8;
+}
+
+.car-price{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: normal;
+    color: #1f1f1f;
+}
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the card */
+  }
+  .car-details {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  ------------------------------------
+  .cab-explore {
+    box-shadow: 0 4px 8px #01010133;
+    border-radius: 25px;
+}
+
+.journey-header {
+    margin-top: 150px;
+    /* background-color: green; */
+    font-weight: 600;
+    /* font-size: 26px; */
+    line-height: 1.5;
+    /* font-size: 2rem; */
+    /* font-family: "Poppins"; */
+    margin: 0;
+    color: rgba(152, 166, 179, .81);
+    padding-left: 0px;
+}
+
+.journey {
+    padding: 20px 30px;
+    /* background-color: red; */
+    border-width: 30px;
+    border-color: black;
+    border-radius: 12px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .07);
+}
+
+.achievements-img {
+    width: 50px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.achievements-title {
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.73;
+}
+
+.happy-revvers {
+    padding-left: 130px;
+}
