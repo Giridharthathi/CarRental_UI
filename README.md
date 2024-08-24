@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
 
+##Intial step
+After cloning the repo run `npm install` command so that it will install all the requried dependencies requried for the project by reading the package.json file
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
